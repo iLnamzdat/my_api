@@ -7,11 +7,14 @@ import (
 )
 
 type errorResponse struct {
-	massage string `json:"message"`
+	Message string `json:"message"`
+}
+
+type statusResponse struct {
+	Status string `json:" status"`
 }
 
 func newErrorResponse(c *gin.Context, stausCode int, message string) {
 	log.Error(message)
-
 	c.AbortWithStatusJSON(stausCode, errorResponse{message})
 }
